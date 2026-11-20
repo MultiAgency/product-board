@@ -1,8 +1,8 @@
 # Intentional Systems
 
-Today, MultiAgency’s core product work is evolving the dashboard into a full-fledged platform that supports agencies built on NEAR Intents.
+Today, MultiAgency’s core product work is evolving the dashboard into a full-fledged platform that supports agencies built on NEAR.
 
-We’re proposing new Verifier-level primitives: shared objectives, delegated authority, resources and accountability across multiple parties.
+We're building companion contracts to the NEAR Intents Verifier for shared objectives, delegated authority, resources and accountability across multiple parties.
 
 IN PROGRESS
 
@@ -35,20 +35,20 @@ discovery, survey tool for generating issues based on user/agent feedback
 PLANNED
 
 **NEAR Extents (working title):**
-Today the Verifier only settles economic intents (transfers, withdrawals, and token_diff swaps that must net to zero), each signed once with a short deadline. Authority is enforced off-chain by our platform, and DAOs can’t meet short approval windows. MultiAgency intends to close these gaps with new Verifier-level primitives:
+The Verifier settles economic intents: transfers, withdrawals and token_diff swaps that must net to zero. We can extend this to social outcomes that need commitments from multiple parties, e.g. *"I have USDC on NEAR, I want an event organized in NYC."*
 
-- Scoped, delegable authority keys to enforce grants on-chain
-- Persistent commitments with stages and acceptance, beyond one-off intents
-- Multi-party obligation diff alongside token_diff, with the Message Bus matching capabilities as well as quotes
-- Approval windows set by the organization for DAOs
-- On-chain organization lifecycle: create, compose, release
-- Verifiable roles built on the Verifier’s existing key-to-account mapping
+Each objective is its own contract at a predictable address (NEP-616), holds resources as balances on intents.near, and settles through standard transfers. DAOs fund and judge objectives through ordinary proposals (e.g. Trezu custom templates).
 
-**Example:** a DAO grants an agent a 30-day, $5k budget for a scoped job. The Verifier enforces the cap, tracks each stage, and releases payment only on recorded acceptance, with no platform in the middle.
+**Key Considerations:**
+1. **How the outcome is judged.** The contract can't see the real world, so everything depends on a measurable spec and an evaluator people can trust: the City Node DAO overseeing the agency.
+2. **Risk spread over time.** Splitting work into milestones, each its own objective, spreads the risk and gets money to the people doing the work sooner.
+3. **Composition.** The sponsor names one agency, which breaks the work into sub-objectives. Each sub-objective requires its contributors to commit, and is set to end before its parent's deadline.
 
-***Important design consideration:** NEAR cross-contract calls don’t complete in submission order, so multi-step commitments need explicit sequencing.*
+**Example:** our Sputnik DAO funds a 30-day, $5k objective for a scoped job. Contributors commit on-chain, the evaluator attests with a hash of its written review, and payment releases only on an achieved verdict. Otherwise funds return to the DAO.
 
-**Next:** draft spec for review
+**Status:** objective contract built (fund, commit, attest, close; unit-tested)
+
+**Next:** e2e test on testnet against Tidepool's Verifier, then in a sandbox with mainnet intents.near and Sputnik DAO code, along with a spec for review
 
 GOAL
 We aim to transform ecosystems with organizations reimagined as composable networks of independent agencies that form, operate, and change via the protocol. MultiAgency is a coordination layer for contributors and their AI agents to share opportunities, create value for their communities, and learn together.
