@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the vision first
+    url: https://github.com/MultiAgency/product-board#readme
+    about: The roadmap and goal this board tracks.

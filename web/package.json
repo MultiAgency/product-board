@@ -1,0 +1,26 @@
+{
+  "name": "product-board-site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@atlaskit/avatar": "^31.0.2",
+    "@atlaskit/button": "^25.8.2",
+    "@atlaskit/lozenge": "^17.0.9",
+    "@atlaskit/pragmatic-drag-and-drop": "^4.0.0",
+    "@atlaskit/textarea": "^11.0.0",
+    "@atlaskit/textfield": "^11.0.0",
+    "@atlaskit/tokens": "^20.14.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.3.0",
+    "vite": "^8.3.8"
+  }
+}

@@ -1,0 +1,41 @@
+name: Label issues from the form
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            // Map the form's Area dropdown to an area:* label. Only fixed values are ever applied.
+            const AREAS = {
+              'Dashboard': 'area:dashboard',
+              'Platform': 'area:platform',
+              'Treasury': 'area:treasury',
+              'Desk': 'area:desk',
+              'near-agencies': 'area:near-agencies',
+              'private-ai': 'area:private-ai',
+              'discovery': 'area:discovery',
+              'NEAR Extents': 'area:near-extents',
+              'Vision / general': 'area:vision',
+            };
+            const issue = context.payload.issue;
+            const m = /### Area\s+([^\n\r]+)/.exec(issue.body || '');
+            if (!m) return;
+            const label = AREAS[m[1].trim()];
+            if (!label) return;
+            const have = issue.labels.map(l => l.name);
+            if (have.includes(label)) return;
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: [label],
+            });

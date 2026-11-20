@@ -1,0 +1,16 @@
+[
+  {"name":"area:dashboard","color":"1f4fd8","description":"Dashboard: multiagency.ai"},
+  {"name":"area:platform","color":"1f4fd8","description":"Platform: api.multiagency.ai"},
+  {"name":"area:treasury","color":"1f4fd8","description":"Treasury app"},
+  {"name":"area:desk","color":"1f4fd8","description":"Desk app"},
+  {"name":"area:near-agencies","color":"8a5a00","description":"Experiment: near-agencies"},
+  {"name":"area:private-ai","color":"8a5a00","description":"Experiment: private-ai"},
+  {"name":"area:discovery","color":"8a5a00","description":"Experiment: discovery"},
+  {"name":"area:near-extents","color":"5b3fc4","description":"Planned: NEAR Extents"},
+  {"name":"area:vision","color":"6b7280","description":"Vision and strategy in general"},
+  {"name":"type:idea","color":"0e8a16","description":"A suggested direction or feature"},
+  {"name":"type:question","color":"d4c5f9","description":"A question about product or design"},
+  {"name":"type:task","color":"fbca04","description":"Concrete piece of work"},
+  {"name":"status:planned","color":"c5def5","description":"Board column: Planned"},
+  {"name":"status:in-progress","color":"1f7a4d","description":"Board column: In progress"}
+]

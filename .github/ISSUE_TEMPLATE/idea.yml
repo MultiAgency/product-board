@@ -1,0 +1,34 @@
+name: Idea
+description: Suggest a direction, feature or experiment.
+title: "[Idea] "
+labels: ["type:idea"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the vision does this touch?
+      options:
+        - Dashboard
+        - Platform
+        - Treasury
+        - Desk
+        - near-agencies
+        - private-ai
+        - discovery
+        - NEAR Extents
+        - Vision / general
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What should we do, and who does it help?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why now
+      description: What problem or opportunity makes this worth doing?
